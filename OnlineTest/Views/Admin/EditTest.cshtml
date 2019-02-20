@@ -1,0 +1,45 @@
+﻿@model OnlineTest.Models.Test
+
+@{
+    ViewData["Title"] = "EditTest";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Edit Test</h2>
+<h3 class="text-danger">@ViewBag.Error</h3>
+<h3 class="text-success">@ViewBag.Msg</h3>
+<h4>Enter Test Details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditTest">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" disabled class="form-control" />
+                <input asp-for="Id" value="@Model.Id" hidden />
+                <input asp-for="Grade" value="@Model.Grade" hidden />
+            </div>
+            <div class="form-group">
+                <label asp-for="Grade" class="control-label"></label>
+                
+                <input value="@Model.Grade" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Tests">Back to List</a>
+</div>
+

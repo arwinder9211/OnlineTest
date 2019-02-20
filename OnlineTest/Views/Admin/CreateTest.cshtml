@@ -1,0 +1,47 @@
+﻿@model OnlineTest.Models.Test
+
+@{
+    ViewData["Title"] = "CreateTest";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Create Test</h2>
+<h3 class="text-success">@ViewBag.Msg</h3>
+<h3 class="text-danger">@ViewBag.Error</h3>
+<h5 class="text-info">Enter test details, Questions can be added later</h5>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateTest">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="Grade" class="control-label"></label>
+                <select asp-for="Grade" class="form-control">
+                    <option value="" disabled selected>Please select a grade *</option>
+                    <option value="PRE-K">PRE-K</option>
+                    <option value="KINDERGARTEN">KINDERGARTEN</option>
+                    <option value="1-Grade">1-Grade</option>
+                    <option value="2-Grade">2-Grade</option>
+                    <option value="3-Grade">3-Grade</option>
+                    <option value="4-Grade">4-Grade</option>
+                    <option value="5-Grade">5-Grade</option>
+                    <option value="6-Grade">6-Grade</option>
+                </select>
+                <span asp-validation-for="Grade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Tests">Back to Test List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

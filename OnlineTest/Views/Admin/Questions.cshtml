@@ -1,0 +1,83 @@
+﻿@model IEnumerable<OnlineTest.Models.Question>
+
+@{
+    ViewData["Title"] = "Questions";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Questions</h2>
+
+<p>
+    <a asp-action="CreateQuestion" class="text-info">Create New Question</a>
+</p>
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuesString)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Time)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OptionA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OptionB)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OptionC)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OptionD)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Answer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Marks)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuesString)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OptionA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OptionB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OptionC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OptionD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Answer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marks)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditQues", new { id=item.Id }) |
+                @*@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

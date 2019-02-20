@@ -1,0 +1,47 @@
+﻿@model IEnumerable<OnlineTest.Models.Test>
+
+@{
+    ViewData["Title"] = "Tests";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Tests</h2>
+
+<p>
+    <a asp-action="CreateTest" class="text-info">Create New Test</a>
+</p>
+<table class="table" id="myTable">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Grade)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.IsActive)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Grade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditTest", new { id=item.Id }) |
+                @Html.ActionLink("Add question", "AddQues", new { id=item.Id }) |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,71 @@
+﻿@model OnlineTest.Models.QuesGiveTestViewModel
+
+@{
+    ViewData["Title"] = "QuesForTest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Test Id - @ViewBag.Id</h2>
+
+<h4 class="text-info">Question @ViewBag.No Of @ViewBag.Count</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="QuesForTest">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input asp-for="Id" hidden value="@Model.Id" />
+                <input asp-for="TestId" hidden value="@Model.TestId" />
+                <input asp-for="No" hidden value="@ViewBag.No" />
+                <label class="control-label">Question Id -  @Model.Id</label>
+                <label class="control-label">Marks -  @Model.Marks</label>
+            </div>
+            <div class="form-group well">
+                <label asp-for="QuesSting" class="control-label"></label>
+                : @Model.QuesSting
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="Time" class="control-label"></label>
+                    <input asp-for="Time" class="form-control" />
+                    <span asp-validation-for="Time" class="text-danger"></span>
+                </div>*@
+            <div class="form-group well">
+                <label asp-for="OptionA" class="control-label"></label>
+                <div>
+                    <input type="radio" asp-for="Answer" value="A"> @Model.OptionA
+                </div>
+            </div>
+            <div class="form-group well">
+                <label asp-for="OptionB" class="control-label"></label>
+                <div class="checkbox">
+
+                    <input type="radio" asp-for="Answer" value="B"> @Model.OptionB
+
+                </div>
+            </div>
+            <div class="form-group well">
+                <label asp-for="OptionC" class="control-label"></label>
+                <div class="checkbox">
+                    <input type="radio" asp-for="Answer" value="C"> @Model.OptionC
+                </div>
+            </div>
+            <div class="form-group well">
+                <label asp-for="OptionD" class="control-label"></label>
+                <div class="checkbox">
+                    <input type="radio" asp-for="Answer" value="D"> @Model.OptionD
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="submit" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@*<div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

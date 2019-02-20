@@ -1,0 +1,34 @@
+﻿@model OnlineTest.Models.ScoreCard
+
+@{
+    ViewData["Title"] = "ViewScore";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Scored Card For Test Id - @ViewBag.Id</h2>
+<h4 class="text-danger">@ViewBag.Msg</h4>
+
+<div>
+    <h4>View Score</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxMarks)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaxMarks)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MarksScored)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MarksScored)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Percentage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Percentage)
+        </dd>
+    </dl>
+</div>

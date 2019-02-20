@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewData["Title"] = "TestCompleted";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-success">@ViewBag.Msg</h2>
+<h2 class="text-danger">@ViewBag.Error</h2>
+@Html.ActionLink("Back To Tests", "Tests")
+

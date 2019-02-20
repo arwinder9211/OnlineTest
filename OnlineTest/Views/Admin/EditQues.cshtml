@@ -1,0 +1,72 @@
+﻿@model OnlineTest.Models.Question
+
+@{
+    ViewData["Title"] = "EditQues";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>EditQues</h2>
+
+<h4>Question</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditQues">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" disabled class="form-control" />
+                <input asp-for="Id"hidden value="@Model.Id" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuesString" class="control-label"></label>
+                <input asp-for="QuesString" class="form-control" />
+                <span asp-validation-for="QuesString" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Time" class="control-label"></label>
+                <input asp-for="Time" class="form-control" />
+                <span asp-validation-for="Time" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OptionA" class="control-label"></label>
+                <input asp-for="OptionA" class="form-control" />
+                <span asp-validation-for="OptionA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OptionB" class="control-label"></label>
+                <input asp-for="OptionB" class="form-control" />
+                <span asp-validation-for="OptionB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OptionC" class="control-label"></label>
+                <input asp-for="OptionC" class="form-control" />
+                <span asp-validation-for="OptionC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OptionD" class="control-label"></label>
+                <input asp-for="OptionD" class="form-control" />
+                <span asp-validation-for="OptionD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Answer" class="control-label"></label>
+                <input asp-for="Answer" class="form-control" />
+                <span asp-validation-for="Answer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Marks" class="control-label"></label>
+                <input asp-for="Marks" class="form-control" />
+                <span asp-validation-for="Marks" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Questions">Back to Questions</a>
+</div>
+

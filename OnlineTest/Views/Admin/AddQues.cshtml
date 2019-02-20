@@ -1,0 +1,96 @@
+﻿@model IEnumerable<OnlineTest.Models.QuesForTestViewModel>
+
+@{
+    ViewData["Title"] = "AddQues";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    int i = 0;
+}
+
+<h2>Select Questions for test with Id - @ViewBag.Id</h2>
+<h4 class="text-danger">@ViewBag.Error</h4>
+<h4 class="text-success">@ViewBag.Msg</h4>
+<form asp-action="AddQues">
+    <table class="table" id="myTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuesString)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Time)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OptionA)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OptionB)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OptionC)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OptionD)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Answer)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Marks)
+                </th>
+                <th>
+                    Select
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    <input hidden="hidden" value="@item.Id" asp-for="@Model.ToArray()[i].Id" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuesString)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OptionA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OptionB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OptionC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OptionD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Answer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Marks)
+                </td>
+                <td>
+                    <input asp-for="@Model.ToArray()[i].IsSelected" />
+                </td>
+            </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+    <div class="form-group">
+        <div class="col-lg-offset-3 col-md-12" style="margin-top: 10px;">
+            <input type="submit" value="Save" class="btn btn-success col-md-6" />
+        </div>
+    </div>
+</form>
